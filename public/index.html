@@ -1,29 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>My Application</title>
-    <link rel="stylesheet" href="/style.css" />
-
+    <link rel="stylesheet" href="/style.css"/>
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<!--    Fontawesome CSS-->
+    <script src="https://kit.fontawesome.com/b3eab56ba0.js" crossorigin="anonymous"></script>
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />-->
     <style>
-        .loading, .movies { display: none; }
-        .loading.active, .movies.active { display: block; }
+        .loading, .movies {
+            display: none;
+        }
+
+        .loading.active, .movies.active {
+            display: block;
+        }
     </style>
 </head>
-<body>
 
-    <div class="container">
-    <!-- <h1>Hello There!</h1>-->
-    <!-- <p>To get started, edit <code>src/index.js</code>.</p>-->
-        <div class="loading active">Loading...</div>
-        <div class="movies">
-            <div class="post-movie-btn"><button class="post-movie">Add Movie</button></div>
-            <div class="edit-movie-btn"><button class="edit-movie">Edit Movie</button></div>
-            <div class="delete-movie-btn"><button class="delete-movie">Delete Movie</button></div>
-            <div class="movies-list"></div>
+
+<body>
+<!--Jumbotron-->
+<div class="jumbotron jumbotron-fluid text-center">
+    <h1 class="display-4">Console Movies</h1>
+    <p class="lead">The coolest movies you'll ever see...in your console.</p>
+</div>
+
+<!--Rest of body-->
+<div class="container">
+    <!--    Button stuff-->
+    <div class="loading active">Loading...</div>
+    <div class="movies">
+        <div class="post-movie-btn">
+            <button class="post-movie">
+                Add Movie
+            </button>
+        </div>
+        <div class="edit-movie-btn">
+            <button class="edit-movie">Edit Movie</button>
+        </div>
+        <div class="delete-movie-btn">
+            <button class="delete-movie">Delete Movie</button>
+        </div>
+        <div class="movies-list">
+            <div class="row moviesdiv">
+                    STUFF
+            </div>
         </div>
     </div>
+</div>
 
-    <script src="./main.js"></script>
+<script src="./main.js"></script>
 </body>
 </html>

@@ -10,14 +10,42 @@ sayHello('World');
 const {getMovies, postMovie, editMovie, deleteMovie} = require('./api.js');
 const $ = require('jquery');
 
+// FULL STAR: <i class="fas fa-star"></i>
+// EMPTY STAR: <i class="far fa-star"></i>
+
+const starfunction = (x) => {
+  let stars;
+  switch (parseInt(x)) {
+    case 1:
+      stars = '<i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>';
+      break;
+    case 2:
+      stars = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>';
+      break;
+    case 3:
+      stars = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>';
+      break;
+    case 4:
+      stars = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>';
+      break;
+    case 5:
+      stars = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>';
+      break;
+    default:
+      stars = '<i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>';
+  }
+  return stars
+};
+
+
 const renderMovies = (movies) => {
+  $(".moviesdiv").html("");
   movies.forEach(({title, rating, id}) => {
-    console.log(`id#${id} - ${title} - rating: ${rating}`);
+    $(".moviesdiv").append(`<div class = "col-md-12">${title} ${starfunction(rating)}</div>`);
   });
 };
 
 getMovies().then((movies) => {
-  console.log('Here are all the movies:');
   $('.loading').removeClass('active');
   $('.movies').addClass('active');
 
