@@ -161,6 +161,13 @@ function listGenres() {
   let genres = [];
 
   getMovies().then(movies => {
+    $('.genre-list').append(`
+      <div class="form-check">
+        <input type="radio" class="form-check-input" id="all" name="genre" value="all">
+        <label for="all" class="form-check-label">All</label>
+      </div>
+    `);
+
     movies.forEach(function(movie) {
       if(!genres.includes(movie)) {
         genres.push(movie.genre);
@@ -180,24 +187,38 @@ listGenres();
 $('.apply-filter-btn').click(filterGenres);
 
 function filterGenres(genre) {
-  // $('.movies').removeClass('active');
-  // $('.loading').addClass('active');
+  $('.movies').removeClass('active');
+  $('.loading').addClass('active');
 
-  var genre = '';
-
-  if($('.form-check-input').is(':checked')) {
+  if($('.form-check-input').is(':checked') && $('.form-check-input:checked').val() !== 'all') {
     genre = $('.form-check-input:checked').val();
-  }
 
-  var moviesBucket = [];
+    let moviesBucket = [];
 
-  getMovies().then(movies => {
-    movies.forEach(function (movie) {
-      if(movie.genre === genre) {
-        moviesBucket.push({movie});
-      }
+    getMovies().then(movies => {
+      movies.forEach(function (movie) {
+        if(movie.genre === genre) {
+          moviesBucket.push(movie);
+        }
+      });
+
+      $('.loading').removeClass('active');
+      $('.movies').addClass('active');
+
+      renderMovies(moviesBucket);
+    }).catch((error) => {
+      alert('Oh no! Something went wrong.\nCheck the console for details.');
+      console.log(error);
     });
-  });
+  }  else {
+    getMovies().then((movies) => {
+      $('.loading').removeClass('active');
+      $('.movies').addClass('active');
 
-  console.log(moviesBucket);
+      renderMovies(movies);
+    }).catch((error) => {
+      alert('Oh no! Something went wrong.\nCheck the console for details.');
+      console.log(error);
+    });
+  }
 }

@@ -20,6 +20,13 @@
       "rating": "4",
       "genre": "Drama",
       "id": 3
+    },
+    {
+      "title": "Knives Out",
+      "rating": "4",
+      "image": "https://m.media-amazon.com/images/M/MV5BMGUwZjliMTAtNzAxZi00MWNiLWE2NzgtZGUxMGQxZjhhNDRiXkEyXkFqcGdeQXVyNjU1NzU3MzE@._V1_UX182_CR0,0,182,268_AL_.jpg",
+      "genre": "Crime & Gangster",
+      "id": 4
     }
   ]
 }

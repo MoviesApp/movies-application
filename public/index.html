@@ -30,13 +30,8 @@
 <div class="container">
     <div class="row">
     <!--    Button stuff-->
-    <div class="loading active">Loading...</div>
+    <div class="loading col-md-9 active">Loading...</div>
         <div class="movies col-md-9">
-            <div class="post-movie-btn">
-                <button class="btn post-movie-modal-btn btn-block btn-primary">
-                    Add A Movie
-                </button>
-            </div>
             <div class="movies-list row"></div>
             <!--        Edit movies modal-->
             <div class="modal fade" id="edit-movie-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -89,7 +84,13 @@
             </div>
             <!--        New movies modal-->
         </div>
-        <div class="genres col-md-3">
+        <div class="add-movie-btn-genres col-md-3">
+            <div class="post-movie-btn">
+                <button class="btn post-movie-modal-btn btn-block btn-primary">
+                    Add A Movie
+                </button>
+            </div>
+
             <p class="font-weight-bold">Filter By Genre</p>
             <div class="genre-list"></div>
             <button class="apply-filter-btn mt-2 btn btn-primary">Filter</button>
