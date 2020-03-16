@@ -35,28 +35,32 @@ const starfunction = (x) => {
 
 
 const renderMovies = (movies) => {
-  $(".moviesdiv").html("");
-  movies.forEach(({image, title, rating, id}) => {
+  $(".movies-list").html("");
+  movies.forEach(({image, title, rating, genre, id}) => {
     if (image === "") {
       image = "images/coming-soon.jpeg"
     }
-    $(".moviesdiv").append(`
-<div class = "individualMovies card">
-<div class="card-body">
-
-<h5 class="card-title">${title}</h5>
-     <h6 class="card-subtitle mb-2 text-muted">${starfunction(rating)}</h6>
-     <img src="${image}" class="card-img-top" alt="image">
- 
-<button class="edit-movie-modal-btn btn btn-info" edit-id="${id}" data-target="#edit-movie-modal">
-<i class="fas fa-pencil-alt"></i>
-</button>
-<button class="delete-movie btn btn-danger" delete-id="${id}">
-<i class="fas fa-trash-alt"></i>
-</button>
-
-</div>
-</div>`);
+    $(".movies-list").append(`
+        <div class="col-md-4 moviesdiv">
+          <div class = "individualMovies card">
+            <div class="card-body">
+    
+            <h5 class="card-title">${title}</h5>
+            <h6 class="card-subtitle mb-2 text-muted small">${genre}</h6>
+            <p class="mb-2 text-muted">${starfunction(rating)}</p>
+            <img src="${image}" class="card-img-top" alt="image">
+     
+            <div class="edit-delete-btns mt-3 text-center">
+              <button class="edit-movie-modal-btn btn btn-info" edit-id="${id}" data-target="#edit-movie-modal">
+              <i class="fas fa-pencil-alt"></i>
+              </button>
+              <button class="delete-movie btn btn-danger" delete-id="${id}">
+              <i class="fas fa-trash-alt"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>`);
   });
 };
 
@@ -83,7 +87,7 @@ $(document).on('click', '.post-movie', function() {
   $('.movies').removeClass('active');
   $('.loading').addClass('active');
 
-  postMovie({ title: $("#post-title-name").val(), rating: $("#post-rating-text").val(), image: $("#post-image-url").val()})
+  postMovie({ title: $("#post-title-name").val(), rating: $("#post-rating-text").val(), image: $("#post-image-url").val(), genre: $("#post-genre").val()})
       .then(data => getMovies()
       .then(movies => {
     $('.loading').removeClass('active');
@@ -108,6 +112,7 @@ $(document).on('click', '.edit-movie-modal-btn', function() {
     $('#title-name').val(data.title);
     $('#rating-text').val(data.rating);
     $('#edit-image-url').val(data.image);
+    $("#edit-genre").val(data.genre);
   });
 
   $('.modal-footer').html(`<button type="button" class="edit-movie btn btn-primary" edit-id="${$(this).attr('edit-id')}">Submit</button>`);
@@ -117,7 +122,7 @@ $(document).on('click', '.edit-movie', function() {
   $('.movies').removeClass('active');
   $('.loading').addClass('active');
 
-  editMovie($(this).attr('edit-id'), { title: $('#title-name').val(), rating: $('#rating-text').val(), image: $("#edit-image-url").val()}).then(data => getMovies().then(movies => {
+  editMovie($(this).attr('edit-id'), { title: $('#title-name').val(), rating: $('#rating-text').val(), image: $("#edit-image-url").val(), genre: $("#edit-genre").val()}).then(data => getMovies().then(movies => {
     $('.loading').removeClass('active');
     $('.movies').addClass('active');
 
@@ -151,3 +156,48 @@ $(document).on('click', '.delete-movie', function() {
     console.log(error);
   });
 });
+
+function listGenres() {
+  let genres = [];
+
+  getMovies().then(movies => {
+    movies.forEach(function(movie) {
+      if(!genres.includes(movie)) {
+        genres.push(movie.genre);
+        $('.genre-list').append(`
+          <div class="form-check">
+            <input type="radio" class="form-check-input" id="${movie.genre}" name="genre" value="${movie.genre}">
+            <label for="${movie.genre}" class="form-check-label">${movie.genre}</label>
+          </div>
+        `);
+      }
+    });
+  });
+}
+
+listGenres();
+
+$('.apply-filter-btn').click(filterGenres);
+
+function filterGenres(genre) {
+  // $('.movies').removeClass('active');
+  // $('.loading').addClass('active');
+
+  var genre = '';
+
+  if($('.form-check-input').is(':checked')) {
+    genre = $('.form-check-input:checked').val();
+  }
+
+  var moviesBucket = [];
+
+  getMovies().then(movies => {
+    movies.forEach(function (movie) {
+      if(movie.genre === genre) {
+        moviesBucket.push({movie});
+      }
+    });
+  });
+
+  console.log(moviesBucket);
+}

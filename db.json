@@ -4,18 +4,21 @@
       "image": "https://m.media-amazon.com/images/M/MV5BY2IzZGY2YmEtYzljNS00NTM5LTgwMzUtMzM1NjQ4NGI0OTk0XkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_UX182_CR0,0,182,268_AL_.jpg",
       "title": "Casablanca",
       "rating": "4",
+      "genre": "Romance",
       "id": 1
     },
     {
       "image": "",
       "title": "Star Wars: A New Hope",
       "rating": "5",
+      "genre": "Science Fiction",
       "id": 2
     },
     {
       "image": "https://m.media-amazon.com/images/M/MV5BNTkzNzBkMWEtZjE3Yy00NDMxLWFhM2ItYWRiYThjNDhkOGY2L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTYzMTY1MjQ@._V1_UX182_CR0,0,182,268_AL_.jpg",
       "title": "Old Yeller",
       "rating": "4",
+      "genre": "Drama",
       "id": 3
     }
   ]
