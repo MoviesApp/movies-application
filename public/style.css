@@ -1,10 +1,17 @@
-.jumbotron{
-background: url("images/background2.jpg") center / cover no-repeat;
+body{
+    background-color: #940000 !important;
+    background-image: url("images/grilled-noise.png");
+}
+.add-movie-wrap{
+    background: white;
+    border-radius: 5px;
+    padding: 15px;
 }
 
-.moviesdiv{
-    /*border: black 1px solid;*/
+.jumbotron{
+    background: url("images/background2.jpg") center / cover no-repeat;
 }
+
 .post-movie-modal-btn{
     margin-bottom: 32px;
 }

@@ -44,10 +44,11 @@ const renderMovies = (movies) => {
         <div class="col-md-4 moviesdiv">
           <div class = "individualMovies card">
             <div class="card-body">
-    
+ 
             <h5 class="card-title">${title}</h5>
             <h6 class="card-subtitle mb-2 text-muted small">${genre}</h6>
             <p class="mb-2 text-muted">${starfunction(rating)}</p>
+            
             <img src="${image}" class="card-img-top" alt="image">
      
             <div class="edit-delete-btns mt-3 text-center">
@@ -57,11 +58,13 @@ const renderMovies = (movies) => {
               <button class="delete-movie btn btn-danger" delete-id="${id}">
               <i class="fas fa-trash-alt"></i>
               </button>
+              
             </div>
           </div>
         </div>
       </div>`);
   });
+  listGenres();
 };
 
 getMovies().then((movies) => {
@@ -161,7 +164,7 @@ function listGenres() {
   let genres = [];
 
   getMovies().then(movies => {
-    $('.genre-list').append(`
+    $('.genre-list').html("").append(`
       <div class="form-check">
         <input type="radio" class="form-check-input" id="all" name="genre" value="all">
         <label for="all" class="form-check-label">All</label>
@@ -182,7 +185,6 @@ function listGenres() {
   });
 }
 
-listGenres();
 
 $('.apply-filter-btn').click(filterGenres);
 
