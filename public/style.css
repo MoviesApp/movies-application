@@ -1,3 +1,14 @@
 .jumbotron{
+background: url("images/background2.jpg") center / cover no-repeat;
+}
 
+.moviesdiv{
+    /*border: black 1px solid;*/
+}
+.post-movie-modal-btn{
+    margin-bottom: 32px;
+}
+
+.individualMovies{
+    margin-bottom: 5%;
 }
