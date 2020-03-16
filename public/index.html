@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 <!--    Fontawesome CSS-->
-    <script src="https://kit.fontawesome.com/b3eab56ba0.js" crossorigin="anonymous"></script>
+
 <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />-->
     <style>
         .loading, .movies {
@@ -39,20 +39,43 @@
                 Add Movie
             </button>
         </div>
-        <div class="edit-movie-btn">
-            <button class="edit-movie">Edit Movie</button>
-        </div>
-        <div class="delete-movie-btn">
-            <button class="delete-movie">Delete Movie</button>
-        </div>
         <div class="movies-list">
             <div class="row moviesdiv">
                     STUFF
             </div>
         </div>
+        <div class="modal fade" id="edit-movie-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal-label">Edit Movie</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="title-name" class="col-form-label">Title:</label>
+                                <input type="text" class="form-control" id="title-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="rating-text" class="col-form-label">Rating:</label>
+                                <input type="text" class="form-control" id="rating-text">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer"></div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/b3eab56ba0.js" crossorigin="anonymous"></script>
 <script src="./main.js"></script>
 </body>
 </html>

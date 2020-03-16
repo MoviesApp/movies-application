@@ -4,6 +4,11 @@ module.exports = {
             .then(response => response.json());
     },
 
+    getMovie: (id) => {
+        return fetch(`/api/movies/${id}`)
+            .then(response => response.json());
+    },
+
     postMovie: (movie) => {
         return fetch('/api/movies', {
             method: 'POST',
