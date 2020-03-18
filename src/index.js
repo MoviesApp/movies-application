@@ -110,8 +110,10 @@ $(document).on('click', '.post-movie', () => {
 
 
 //Stuff for editing movies
-$(document).on('click', '.edit-movie-modal-btn', () => {
+$(document).on('click', '.edit-movie-modal-btn', function() {
   $('#edit-movie-modal').modal('show');
+
+  console.log($(this).attr('edit-id'));
 
   getMovie($(this).attr('edit-id')).then((data) => {
     $('#title-name').val(data.title);
@@ -123,7 +125,7 @@ $(document).on('click', '.edit-movie-modal-btn', () => {
   $('.modal-footer').html(`<button type="button" class="edit-movie btn btn-primary" edit-id="${$(this).attr('edit-id')}">Submit</button>`);
 });
 
-$(document).on('click', '.edit-movie', () => {
+$(document).on('click', '.edit-movie', function() {
   $('.movies-list').removeClass('active');
   $('.loading').addClass('active');
 
