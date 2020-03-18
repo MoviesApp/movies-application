@@ -7,20 +7,12 @@
     <!--Bootstrap CSS-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
-    <style>
-        .loading, .movies {
-            display: none;
-        }
-
-        .loading.active, .movies.active {
-            display: block;
-        }
-    </style>
 </head>
 
 
 <body>
+<div class="loading active"><img src="images/loader.gif" alt="Loading"></div>
+
 <!--Jumbotron-->
 <div class="jumbotron jumbotron-fluid text-center">
     <h1 class="display-4 font-weight-bold">Console Movies</h1>
@@ -30,8 +22,7 @@
 <div class="container">
     <div class="row">
         <!--    Button stuff-->
-        <div class="loading col-md-9 active">Loading...</div>
-        <div class="movies col-md-9">
+        <div class="movies col-md-9 active">
             <div class="movies-list row"></div>
             <!--        Edit movies modal-->
             <div class="modal fade" id="edit-movie-modal" tabindex="-1" role="dialog"

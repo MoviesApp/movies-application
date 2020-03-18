@@ -12,6 +12,21 @@ body{
     background: url("images/background2.jpg") center / cover no-repeat;
 }
 
+.loading {
+    background-color: rgba(255, 255, 255, .90);
+    display: none;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: 1;
+}
+.loading.active { display: block; }
+.loading > img {
+    width: 36px;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .post-movie-modal-btn{
     margin-bottom: 32px;
 }
